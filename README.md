@@ -9,7 +9,10 @@ Download and double-click [ChecksumVerifier.alfredworkflow](https://github.com/A
 
 ##Usage
 
-select in finder the file to check then type `checksum <digest>`  into alfred 
+select in Finder the file to check then type `checksum <digest>` into alfred 
+
+![image](examples/match.png)
+![image](examples/nomatch.png)
 
 ##Note
 To manually get the digest (for example sha1) of a file use:
