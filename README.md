@@ -16,9 +16,8 @@ select in Finder the file to check then type `checksum <digest>` into alfred
 
 ##Note
 
-The script [luncher.scpt](https://github.com/Arci/alfred-checksum-veirfier/raw/master/luncher.scpt) is used in alfred to get the current selected file in Finder and then call the python script
+The script [luncher.scpt](https://github.com/Arci/alfred-checksum-veirfier/raw/master/luncher.scpt) is used in alfred to get the current selected file in Finder and then call the python script.
 
-===
 To manually get the digest (for example sha1) of a file use:
 
 ```
