@@ -1,4 +1,4 @@
-#alfred-checksum-veirfier
+#alfred-checksum-verifier
 
 This Alfred 2 workflow check the checksum validity of a file with respect to sha1, md5 and sha256.
 
@@ -16,7 +16,7 @@ select in Finder the file to check then type `checksum <digest>` into alfred
 
 ##Note
 
-The script [luncher.scpt](https://github.com/Arci/alfred-checksum-verifier/blob/master/luncher.scpt) is used in alfred to get the current selected file in Finder and then call the python script.
+The script [luncher.scpt](luncher.scpt) is used in alfred to get the current selected file in Finder and then call the python script.
 
 To manually get the digest (for example sha1) of a file use:
 
