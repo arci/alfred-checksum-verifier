@@ -14,6 +14,10 @@ select in Finder the file to check then type `checksum <digest>` into alfred
 ![image](examples/match.png)
 ![image](examples/nomatch.png)
 
+or to calculate all the checksum for the selected file type `checksum all`
+
+![image](examples/all.png)
+
 ##Note
 
 The script [luncher.scpt](luncher.scpt) is used in alfred to get the current selected file in Finder and then call the python script.
