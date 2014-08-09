@@ -5,6 +5,7 @@ import ntpath
 import alfred
 
 results = []
+algs = ['sha1', 'md5', 'sha256']
 
 def addResult(title, subtitle, icon):
   global results
@@ -19,18 +20,29 @@ def getDigest(filename, alg):
   digest = commands.getstatusoutput('openssl dgst -'+ alg +' ' + filename)
   return digest[1].split('= ')[1]
 
-def checkDigest(filename, digest, alg):
-  c_digest = getDigest(filename, alg)
-  if digest == c_digest:
-    addResult(alg.upper() + ' MATCH for \''+ ntpath.basename(filename) + '\'',  '[' + c_digest + ']', 'icons/green.png')
-    return True
-  return False
+def checkDigests(filename, digest):
+  global algs
+  match = False
+  for alg in algs:
+    c_digest = getDigest(filename, alg)
+    if digest == c_digest:
+      match = True
+      addResult(alg.upper() + ' MATCH for \''+ ntpath.basename(filename) + '\'',  '[' + c_digest + ']', 'icons/green.png')
+  if not match:
+    addResult('NO MATCH for \''+ ntpath.basename(filename) + '\'', 'file may be corrupted!', 'icons/red.png')
 
+def showAllDigests(filename):
+  global algs
+  for alg in algs:
+    c_digest = getDigest(filename, alg)
+    addResult(alg.upper() + ' for \''+ ntpath.basename(filename) + '\'',  ' is [' + c_digest + ']', 'icons/orange.png')
+
+# main
 (filename, digest) = alfred.args()
 
-if not checkDigest(filename, digest, 'sha1'):
-  if not checkDigest(filename, digest, 'md5'):
-    if not checkDigest(filename, digest, 'sha256'):
-      addResult('NO MATCH for \''+ ntpath.basename(filename) + '\'', 'file may be corrupted!', 'icons/red.png')
+if digest == 'all':
+  showAllDigests(filename)
+else:
+  checkDigests(filename, digest)
 
 alfred.write(alfred.xml(results))

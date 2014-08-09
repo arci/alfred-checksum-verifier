@@ -1,4 +1,4 @@
-#alfred-checksum-verifier
+ #alfred-checksum-verifier
 
 This Alfred 2 workflow check the checksum validity of a file with respect to sha1, md5 and sha256.
 
@@ -13,6 +13,10 @@ select in Finder the file to check then type `checksum <digest>` into alfred
 
 ![image](examples/match.png)
 ![image](examples/nomatch.png)
+
+or to calculate all the checksum for the selected file type `checksum all`
+
+![image](examples/all.png)
 
 ##Note
 
