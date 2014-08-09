@@ -1,4 +1,4 @@
- #alfred-checksum-verifier
+#alfred-checksum-verifier
 
 This Alfred 2 workflow check the checksum validity of a file with respect to sha1, md5 and sha256.
 
