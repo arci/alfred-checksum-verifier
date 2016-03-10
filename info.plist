@@ -9,7 +9,16 @@
 	<key>connections</key>
 	<dict>
 		<key>AC91D8E1-AB5B-45A1-87DD-9C51918ABEDF</key>
-		<array/>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>CE46919D-078C-4365-B6C7-A06B13C0D6EE</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
 	</dict>
 	<key>createdby</key>
 	<string>Arcidiacono Fabio</string>
@@ -21,6 +30,21 @@
 	<string>Checksum</string>
 	<key>objects</key>
 	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>autopaste</key>
+				<true/>
+				<key>clipboardtext</key>
+				<string>{query}</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>CE46919D-078C-4365-B6C7-A06B13C0D6EE</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
@@ -70,6 +94,11 @@ end try</string>
 	<key>uidata</key>
 	<dict>
 		<key>AC91D8E1-AB5B-45A1-87DD-9C51918ABEDF</key>
+		<dict>
+			<key>ypos</key>
+			<real>170</real>
+		</dict>
+		<key>CE46919D-078C-4365-B6C7-A06B13C0D6EE</key>
 		<dict>
 			<key>ypos</key>
 			<real>170</real>

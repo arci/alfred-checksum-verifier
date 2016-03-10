@@ -7,10 +7,10 @@ import alfred
 results = []
 algs = ['sha1', 'md5', 'sha256']
 
-def addResult(title, subtitle, icon):
+def addResult(title, subtitle, icon, c_digest=None):
   global results
   results.append(alfred.Item(
-      attributes= {'uid': alfred.uid(0), 'arg': ''},
+      attributes= {'uid': alfred.uid(0), 'arg': c_digest},
       title=title,
       subtitle=subtitle,
       icon=icon
@@ -35,7 +35,7 @@ def showAllDigests(filename):
   global algs
   for alg in algs:
     c_digest = getDigest(filename, alg)
-    addResult(alg.upper() + ' for \''+ ntpath.basename(filename) + '\'',  ' is [' + c_digest + ']', 'icons/orange.png')
+    addResult(alg.upper() + ' for \''+ ntpath.basename(filename) + '\'',  ' is [' + c_digest + ']', 'icons/orange.png', c_digest)
 
 # main
 (filename, digest) = alfred.args()
