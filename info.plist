@@ -30,11 +30,24 @@
 				<integer>127</integer>
 				<key>keyword</key>
 				<string>checksum</string>
+				<key>queuedelaycustom</key>
+				<integer>1</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<false/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
 				<key>runningsubtext</key>
 				<string>Verifying</string>
 				<key>script</key>
-				<string>tell application "Finder"	set sel to the selection as text	set sel to POSIX path of sel	do shell script "./alfredChecksum.py " &amp; sel &amp; " {query}"
-end tell</string>
+				<string>try
+	tell application "Finder"		set sel to the selection as text		set sel to POSIX path of sel		do shell script "./alfredChecksum.py " &amp; sel &amp; " {query}"
+	end tell
+on error
+	tell application "Path Finder"		set sel to POSIX path of (item 1 of (get selection))		do shell script "./alfredChecksum.py " &amp; sel &amp; " {query}"
+	end tell
+end try</string>
 				<key>subtext</key>
 				<string>Type digest</string>
 				<key>title</key>
