@@ -35,7 +35,7 @@ def showAllDigests(filename):
   global algs
   for alg in algs:
     c_digest = getDigest(filename, alg)
-    addResult(alg.upper() + ' for \''+ ntpath.basename(filename) + '\'',  ' is [' + c_digest + ']', 'icons/orange.png', c_digest)
+    addResult(alg.upper() + ':' + c_digest,  ' Hit Enter to Copy to Clipboard', 'icons/orange.png', c_digest)
 
 # main
 (filename, digest) = alfred.args()
