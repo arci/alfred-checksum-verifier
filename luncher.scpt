@@ -1,1 +1,1 @@
-tell application "Finder"	set sel to the selection as text	set sel to POSIX path of sel	do shell script "./alfredChecksum.py " & sel & " {query}"end tell
+try    tell application "Finder"        set sel to the selection as text        set sel to POSIX path of sel        do shell script "./alfredChecksum.py " & sel & " {query}"    end tellon error    tell application "Path Finder"        set sel to POSIX path of (item 1 of (get selection))        do shell script "./alfredChecksum.py " & sel & " {query}"    end tellend try

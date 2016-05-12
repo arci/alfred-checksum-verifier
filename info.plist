@@ -9,7 +9,16 @@
 	<key>connections</key>
 	<dict>
 		<key>AC91D8E1-AB5B-45A1-87DD-9C51918ABEDF</key>
-		<array/>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>CE46919D-078C-4365-B6C7-A06B13C0D6EE</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
 	</dict>
 	<key>createdby</key>
 	<string>Arcidiacono Fabio</string>
@@ -24,17 +33,45 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>autopaste</key>
+				<true/>
+				<key>clipboardtext</key>
+				<string>{query}</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>CE46919D-078C-4365-B6C7-A06B13C0D6EE</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>argumenttype</key>
 				<integer>0</integer>
 				<key>escaping</key>
 				<integer>127</integer>
 				<key>keyword</key>
 				<string>checksum</string>
+				<key>queuedelaycustom</key>
+				<integer>1</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<false/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
 				<key>runningsubtext</key>
 				<string>Verifying</string>
 				<key>script</key>
-				<string>tell application "Finder"	set sel to the selection as text	set sel to POSIX path of sel	do shell script "./alfredChecksum.py " &amp; sel &amp; " {query}"
-end tell</string>
+				<string>try
+	tell application "Finder"		set sel to the selection as text		set sel to POSIX path of sel		do shell script "./alfredChecksum.py " &amp; sel &amp; " {query}"
+	end tell
+on error
+	tell application "Path Finder"		set sel to POSIX path of (item 1 of (get selection))		do shell script "./alfredChecksum.py " &amp; sel &amp; " {query}"
+	end tell
+end try</string>
 				<key>subtext</key>
 				<string>Type digest</string>
 				<key>title</key>
@@ -57,6 +94,11 @@ end tell</string>
 	<key>uidata</key>
 	<dict>
 		<key>AC91D8E1-AB5B-45A1-87DD-9C51918ABEDF</key>
+		<dict>
+			<key>ypos</key>
+			<real>170</real>
+		</dict>
+		<key>CE46919D-078C-4365-B6C7-A06B13C0D6EE</key>
 		<dict>
 			<key>ypos</key>
 			<real>170</real>
