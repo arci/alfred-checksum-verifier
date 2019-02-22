@@ -1,13 +1,13 @@
-#alfred-checksum-verifier
+# alfred-checksum-verifier
 
 This Alfred 2 workflow check the checksum validity of a file with respect to sha1, md5 and sha256.
 
 Thanks to [alfred.py](https://github.com/nikipore/alfred-python) for ease the communication with Alfred.
 
-##Installation
+## Installation
 Download and double-click [ChecksumVerifier.alfredworkflow](https://github.com/Arci/alfred-checksum-verifier/raw/master/ChecksumVerifier.alfredworkflow).
 
-##Usage
+## Usage
 
 select in Finder the file to check then type `checksum <digest>` into alfred 
 
@@ -18,7 +18,7 @@ or to calculate all the checksum for the selected file type `checksum all`
 
 ![image](examples/all.png)
 
-##Note
+## Note
 
 The script [luncher.scpt](luncher.scpt) is used in alfred to get the current selected file in Finder and then call the python script.
 
